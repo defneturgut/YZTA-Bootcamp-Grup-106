@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Sayfa | Benim Dünyam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="uygulama">
+
+  <!-- SOL KENAR MENÜ -->
+  <nav class="kenar-menu" aria-label="Ana menü">
+    <div class="logo"><span>🌈</span>Benim Dünyam</div>
+    <a href="ana-sayfa.html" class="menu-link aktif"><span class="ikon">🏠</span> Ana Sayfa</a>
+    <a href="index.html" class="menu-link"><span class="ikon">😊</span> Duygu Kartları</a>
+    <a href="diskalkuli.html" class="menu-link"><span class="ikon">🍎</span> Sayı Bahçesi</a>
+    <a href="disleksi.html" class="menu-link"><span class="ikon">✏️</span> Yazı Atölyesi</a>
+    <a href="takvim.html" class="menu-link"><span class="ikon">📅</span> Günüm</a>
+  </nav>
+
+  <!-- ANA İÇERİK -->
+  <main class="icerik">
+    <div class="ust-bar">
+      <div class="karsilama">
+        <span class="emoji-buyuk" id="karsilamaEmoji">🙂</span>
+        <div>
+          <div id="karsilamaMetin" style="font-family: var(--font-heading); font-weight: 700;">Hoş geldin!</div>
+          <div style="font-size: 0.85rem; color: var(--text-soft);">Bugün harika bir gün olacak</div>
+        </div>
+      </div>
+
+      <div class="erisilebilirlik-cubugu" aria-label="Yazı boyutu ayarları">
+        <span>Yazı Boyutu</span>
+        <button class="font-btn" data-aksiyon="kucult" aria-label="Yazıyı küçült">A-</button>
+        <button class="font-btn" data-aksiyon="sifirla" aria-label="Yazıyı sıfırla">A</button>
+        <button class="font-btn" data-aksiyon="buyut" aria-label="Yazıyı büyüt">A+</button>
+      </div>
+    </div>
+
+    <div class="kart" style="margin-bottom: 24px;">
+      <h2 id="etkinlikBaslik">Ne yapmak istersin? 🌟</h2>
+      <p style="color: var(--text-soft);">Aşağıdan bir etkinlik seç ve başlayalım.</p>
+    </div>
+
+    <div class="kart-grid">
+      <a href="diskalkuli.html" class="mini-kart">
+        <span class="ikon">🍎</span>
+        <h3 style="margin:0;">Sayı Bahçesi</h3>
+        <p style="margin:0; color: var(--text-soft); font-size: 0.9rem;">Meyvelerle toplama, çıkarma, çarpma ve bölme oyunu oyna.</p>
+      </a>
+
+      <a href="disleksi.html" class="mini-kart">
+        <span class="ikon">✏️</span>
+        <h3 style="margin:0;">Yazı Atölyesi</h3>
+        <p style="margin:0; color: var(--text-soft); font-size: 0.9rem;">Dinle-yaz alıştırması yap, harfleri ayırt et.</p>
+      </a>
+
+      <a href="takvim.html" class="mini-kart">
+        <span class="ikon">📅</span>
+        <h3 style="margin:0;">Günüm</h3>
+        <p style="margin:0; color: var(--text-soft); font-size: 0.9rem;">Bugün yapılacakları gör, tamamladıklarını işaretle.</p>
+      </a>
+
+      <a href="index.html" class="mini-kart">
+        <span class="ikon">😊</span>
+        <h3 style="margin:0;">Duygu Kartları</h3>
+        <p style="margin:0; color: var(--text-soft); font-size: 0.9rem;">Şu an nasıl hissettiğini tekrar seçebilirsin.</p>
+      </a>
+    </div>
+  </main>
+</div>
+
+<script src="ortak.js"></script>
+<script>
+  // Duygu kartları sayfasında seçilen duyguyu ve profil bilgisini burada gösteriyoruz
+  document.addEventListener('DOMContentLoaded', () => {
+    const profil = profilGetir();
+    const duygu = secilenDuyguyuGetir();
+    const isim = profil ? profil.isim : '';
+
+    if (duygu) {
+      document.getElementById('karsilamaEmoji').textContent = duygu.emoji;
+      document.getElementById('karsilamaMetin').textContent = isim
+        ? `Merhaba ${isim}! Bugün: ${duygu.metin}`
+        : 'Bugün: ' + duygu.metin;
+    } else if (isim) {
+      document.getElementById('karsilamaEmoji').textContent = profil.avatar || '🙂';
+      document.getElementById('karsilamaMetin').textContent = `Merhaba, ${isim}!`;
+    }
+
+    const baslik = document.getElementById('etkinlikBaslik');
+    if (baslik && isim) {
+      baslik.textContent = `Ne yapmak istersin, ${isim}? 🌟`;
+    }
+  });
+</script>
+</body>
+</html>

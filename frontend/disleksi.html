@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazı Atölyesi | Benim Dünyam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .bolum-basligi {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .bolum-basligi .ikon {
+    font-size: 1.6rem;
+  }
+
+  /* --- 1) Okuma ayarları bölümü --- */
+  .kaydirici-satiri {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .kaydirici-satiri label {
+    width: 150px;
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+  }
+
+  .kaydirici-satiri input[type="range"] {
+    flex: 1;
+    accent-color: var(--green-soft);
+    height: 6px;
+  }
+
+  .ornek-metin-kutusu {
+    background: var(--blue-baby-light);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    margin-top: 16px;
+  }
+
+  #ornekMetin {
+    margin: 0;
+  }
+
+  /* --- 2) Sesli yazma alıştırması --- */
+  .dinle-btn {
+    background: var(--warm-peach);
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    font-size: 1.7rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.15s ease;
+  }
+
+  .dinle-btn:hover,
+  .dinle-btn:focus-visible {
+    transform: scale(1.08);
+    background: var(--warm-peach-dark);
+  }
+
+  .yazma-alani {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 0 4px 0;
+  }
+
+  #kelimeInput {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 18px;
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: var(--radius-md);
+    border: 3px solid var(--green-soft);
+    font-family: var(--font-body);
+    letter-spacing: 2px;
+  }
+
+  #kelimeInput:focus-visible {
+    outline: 3px solid var(--text-main);
+  }
+
+  .yazma-geri-bildirim {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    min-height: 30px;
+  }
+
+  /* --- 3) Harf ayırt etme oyunu --- */
+  .hedef-harf {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    text-align: center;
+    background: var(--green-soft-light);
+    border-radius: var(--radius-lg);
+    padding: 10px;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  .harf-secenekleri {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .harf-btn {
+    background: var(--blue-baby-light);
+    border: 3px solid transparent;
+    border-radius: var(--radius-md);
+    width: 74px;
+    height: 74px;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .harf-btn:hover,
+  .harf-btn:focus-visible {
+    transform: translateY(-3px);
+    background: var(--blue-baby);
+  }
+
+  .harf-btn.dogru { background: var(--success); border-color: #4f9c72; color: white; }
+  .harf-btn.yanlis { background: var(--error); border-color: #c96f6f; color: white; }
+
+  .harf-skor {
+    text-align: center;
+    margin-top: 16px;
+    color: var(--text-soft);
+    font-weight: 700;
+  }
+
+  .bolumler-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 22px;
+  }
+
+  @media (max-width: 900px) {
+    .bolumler-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="uygulama">
+
+  <nav class="kenar-menu" aria-label="Ana menü">
+    <div class="logo"><span>🌈</span>Benim Dünyam</div>
+    <a href="ana-sayfa.html" class="menu-link"><span class="ikon">🏠</span> Ana Sayfa</a>
+    <a href="index.html" class="menu-link"><span class="ikon">😊</span> Duygu Kartları</a>
+    <a href="diskalkuli.html" class="menu-link"><span class="ikon">🍎</span> Sayı Bahçesi</a>
+    <a href="disleksi.html" class="menu-link aktif"><span class="ikon">✏️</span> Yazı Atölyesi</a>
+    <a href="takvim.html" class="menu-link"><span class="ikon">📅</span> Günüm</a>
+  </nav>
+
+  <main class="icerik">
+    <div class="ust-bar">
+      <h1 style="margin:0;">✏️ Yazı Atölyesi</h1>
+      <div class="erisilebilirlik-cubugu">
+        <span>Yazı Boyutu</span>
+        <button class="font-btn" data-aksiyon="kucult" aria-label="Yazıyı küçült">A-</button>
+        <button class="font-btn" data-aksiyon="sifirla" aria-label="Yazıyı sıfırla">A</button>
+        <button class="font-btn" data-aksiyon="buyut" aria-label="Yazıyı büyüt">A+</button>
+      </div>
+    </div>
+
+    <!-- 1) OKUMA AYARLARI -->
+    <div class="kart" style="margin-bottom: 22px;">
+      <div class="bolum-basligi"><span class="ikon">📖</span><h2 style="margin:0;">Okumamı Kolaylaştır</h2></div>
+      <p style="color: var(--text-soft); margin-top:0;">Kaydırıcıları hareket ettir, metnin nasıl değiştiğini gör.</p>
+
+      <div class="kaydirici-satiri">
+        <label for="harfAraligi">Harf Aralığı</label>
+        <input type="range" id="harfAraligi" min="0" max="10" value="0">
+      </div>
+      <div class="kaydirici-satiri">
+        <label for="satirAraligi">Satır Aralığı</label>
+        <input type="range" id="satirAraligi" min="100" max="260" value="160">
+      </div>
+      <div class="kaydirici-satiri">
+        <label for="kelimeAraligi">Kelime Aralığı</label>
+        <input type="range" id="kelimeAraligi" min="0" max="20" value="0">
+      </div>
+
+      <div class="ornek-metin-kutusu">
+        <p id="ornekMetin">Küçük kedi, güneşli bahçede mutlu mutlu koşuyor ve renkli çiçekleri kokluyordu.</p>
+      </div>
+    </div>
+
+    <div class="bolumler-grid">
+      <!-- 2) SESLİ YAZMA ALIŞTIRMASI -->
+      <div class="kart">
+        <div class="bolum-basligi"><span class="ikon">🔊</span><h2 style="margin:0;">Dinle ve Yaz</h2></div>
+        <p style="color: var(--text-soft); margin-top:0;">Kelimeyi dinle, sonra aynısını kutuya yaz.</p>
+
+        <div class="yazma-alani">
+          <button class="dinle-btn" id="dinleBtn" aria-label="Kelimeyi dinle">🔊</button>
+          <input type="text" id="kelimeInput" placeholder="Duyduğun kelimeyi yaz..." autocomplete="off">
+          <button class="buton-birincil" id="kontrolEtBtn">Kontrol Et</button>
+          <div class="yazma-geri-bildirim" id="yazmaGeriBildirim"></div>
+        </div>
+      </div>
+
+      <!-- 3) HARF AYIRT ETME OYUNU -->
+      <div class="kart">
+        <div class="bolum-basligi"><span class="ikon">🔤</span><h2 style="margin:0;">Aynı Harfi Bul</h2></div>
+        <p style="color: var(--text-soft); margin-top:0;">Kutudaki harfin aynısına tıkla.</p>
+
+        <div class="hedef-harf" id="hedefHarf">b</div>
+        <div class="harf-secenekleri" id="harfSecenekleri"></div>
+        <div class="harf-skor" id="harfSkor">Doğru: 0 · Yanlış: 0</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="ortak.js"></script>
+<script src="disleksi.js"></script>
+</body>
+</html>
