@@ -90,3 +90,11 @@ Birim testleri ve kullanıcı testleri sprint sürecine dahil edilecek.
 
 # Scrum Board
 <img width="1440" height="677" alt="Screenshot 2026-07-19 at 11 54 42" src="https://github.com/user-attachments/assets/2eaa3151-4332-4ccb-b4f7-b6fb328b2c85" />
+# Güncel Güncel Ürün Ekran Görüntüleri
+<img width="1499" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53" src="https://github.com/user-attachments/assets/a3fed64b-d426-4420-89af-db0b12c24886" />
+<img width="1371" height="963" alt="WhatsApp Image 2026-07-19 at 19 38 53 (1)" src="https://github.com/user-attachments/assets/f03095d4-251e-4723-a8d7-c3367da660ff" />
+<img width="1569" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53 (2)" src="https://github.com/user-attachments/assets/4c2e067d-917d-4b74-9312-75a0d79c6971" />
+<img width="1460" height="794" alt="WhatsApp Image 2026-07-19 at 19 38 53 (3)" src="https://github.com/user-attachments/assets/f516b0a6-6dd9-4bf9-95f0-6b208a3fae29" />
+<img width="1472" height="953" alt="WhatsApp Image 2026-07-19 at 19 38 54" src="https://github.com/user-attachments/assets/70856d7a-2e08-4705-8025-5c8fbe47a87a" />
+<img width="1555" height="921" alt="WhatsApp Image 2026-07-19 at 19 38 54 (1)" src="https://github.com/user-attachments/assets/53b6b996-d873-4dec-8c80-cff83e5c7774" />
+
