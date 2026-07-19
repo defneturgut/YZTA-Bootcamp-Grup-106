@@ -90,6 +90,7 @@ Birim testleri ve kullanıcı testleri sprint sürecine dahil edilecek.
 
 # Scrum Board
 <img width="1440" height="677" alt="Screenshot 2026-07-19 at 11 54 42" src="https://github.com/user-attachments/assets/2eaa3151-4332-4ccb-b4f7-b6fb328b2c85" />
+
 # Güncel Güncel Ürün Ekran Görüntüleri
 <img width="1499" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53" src="https://github.com/user-attachments/assets/a3fed64b-d426-4420-89af-db0b12c24886" />
 <img width="1371" height="963" alt="WhatsApp Image 2026-07-19 at 19 38 53 (1)" src="https://github.com/user-attachments/assets/f03095d4-251e-4723-a8d7-c3367da660ff" />
