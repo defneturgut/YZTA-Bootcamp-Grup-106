@@ -1,0 +1,20 @@
+{
+  "profiller": [
+    {
+      "id": 1,
+      "isim": "Deniz",
+      "avatar": "🐻",
+      "renk": "#a8d8c8",
+      "olusturulma": "2026-07-17T19:48:42.789Z"
+    }
+  ],
+  "duygu_kayitlari": [],
+  "gorevler": [],
+  "oyun_skorlari": [],
+  "nextIds": {
+    "profiller": 2,
+    "duygu_kayitlari": 1,
+    "gorevler": 1,
+    "oyun_skorlari": 1
+  }
+}

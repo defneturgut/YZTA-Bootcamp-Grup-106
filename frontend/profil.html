@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profilim | Benim Dünyam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body.profil-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .profil-kutu {
+    max-width: 640px;
+    width: 100%;
+  }
+
+  .profil-baslik-alani {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .profil-baslik-alani .buyuk-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 8px;
+    animation: profil-sallanma 3.5s ease-in-out infinite;
+  }
+
+  @keyframes profil-sallanma {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+  }
+
+  .profil-baslik-alani h1 {
+    font-size: 1.9rem;
+    margin-bottom: 6px;
+  }
+
+  .profil-baslik-alani p {
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .form-karti {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .alan-basligi {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  #isimInput {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1.15rem;
+    border-radius: var(--radius-md);
+    border: 3px solid var(--green-soft);
+    font-family: var(--font-body);
+    margin-bottom: 26px;
+  }
+
+  #isimInput:focus-visible {
+    outline: 3px solid var(--text-main);
+  }
+
+  .avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .avatar-secenek {
+    background: var(--blue-baby-light);
+    border: 3px solid transparent;
+    border-radius: var(--radius-md);
+    font-size: 1.8rem;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .avatar-secenek:hover,
+  .avatar-secenek:focus-visible {
+    transform: translateY(-3px) scale(1.05);
+    background: var(--blue-baby);
+  }
+
+  .avatar-secenek.secili {
+    background: var(--success);
+    border-color: #4f9c72;
+  }
+
+  .renk-grid {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .renk-secenek {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: transform 0.15s ease;
+  }
+
+  .renk-secenek:hover,
+  .renk-secenek:focus-visible {
+    transform: scale(1.12);
+  }
+
+  .renk-secenek.secili {
+    border-color: var(--text-main);
+  }
+
+  .kaydet-satiri {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  #kaydetBtn {
+    font-size: 1.05rem;
+    padding: 14px 30px;
+  }
+
+  .form-geri-bildirim {
+    font-family: var(--font-heading);
+    color: var(--error);
+    min-height: 24px;
+  }
+
+  @media (max-width: 480px) {
+    .avatar-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body class="profil-body">
+
+  <div class="profil-kutu">
+    <div class="profil-baslik-alani">
+      <span class="buyuk-emoji" id="baslikEmoji">🌈</span>
+      <h1 id="baslikMetni">Hadi Tanışalım!</h1>
+      <p id="altBaslikMetni">Adını ve sana en uygun avatarı seç, burayı senin için hazırlayalım.</p>
+    </div>
+
+    <div class="form-karti">
+      <label class="alan-basligi" for="isimInput">Adın ne?</label>
+      <input type="text" id="isimInput" placeholder="Adını buraya yaz..." autocomplete="off" maxlength="20">
+
+      <span class="alan-basligi">Sana hangi avatar uygun?</span>
+      <div class="avatar-grid" id="avatarGrid" role="group" aria-label="Avatar seçimi"></div>
+
+      <span class="alan-basligi">En sevdiğin renk hangisi?</span>
+      <div class="renk-grid" id="renkGrid" role="group" aria-label="Renk seçimi"></div>
+
+      <div class="kaydet-satiri">
+        <button class="buton-birincil" id="kaydetBtn">Kaydet ve Devam Et →</button>
+        <span class="form-geri-bildirim" id="formGeriBildirim"></span>
+      </div>
+    </div>
+  </div>
+
+<script src="ortak.js"></script>
+<script src="profil.js"></script>
+</body>
+</html>
