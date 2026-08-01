@@ -174,26 +174,6 @@ EBEVEYN_PIN=1234
 | POST | `/api/ai/gunum-sohbet` | AI destekli gün planı oluşturma |
 | POST | `/api/ebeveyn/pin-dogrula` | Ebeveyn paneli PIN doğrulama |
 
-## 📸 Ekran Görüntüleri
-
-<img width="1468" height="807" alt="ana sayfa" src="https://github.com/user-attachments/assets/ac163009-5b09-427e-b419-11608d3be1e0" />
-<img width="1372" height="735" alt="duygu kartları" src="https://github.com/user-attachments/assets/fd20d6d7-95cd-4961-95a3-4cc4060141d6" />
-<img width="1318" height="614" alt="günüm" src="https://github.com/user-attachments/assets/d181145d-0839-468c-b7e3-125475eabbd0" />
-<img width="1195" height="740" alt="sayı bahçesi" src="https://github.com/user-attachments/assets/fdc9fdca-8a5c-4c50-aa49-ffaf88c9c4b8" />
-<img width="1204" height="783" alt="yazı atölyesii" src="https://github.com/user-attachments/assets/facc099f-a7c0-473e-8c4a-328c402ed3e3" />
-
-<details>
-<summary>Daha fazla ekran görüntüsü</summary>
-
-<img width="1499" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53" src="https://github.com/user-attachments/assets/a3fed64b-d426-4420-89af-db0b12c24886" />
-<img width="1371" height="963" alt="WhatsApp Image 2026-07-19 at 19 38 53 (1)" src="https://github.com/user-attachments/assets/f03095d4-251e-4723-a8d7-c3367da660ff" />
-<img width="1569" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53 (2)" src="https://github.com/user-attachments/assets/4c2e067d-917d-4b74-9312-75a0d79c6971" />
-<img width="1460" height="794" alt="WhatsApp Image 2026-07-19 at 19 38 53 (3)" src="https://github.com/user-attachments/assets/f516b0a6-6dd9-4bf9-95f0-6b208a3fae29" />
-<img width="1472" height="953" alt="WhatsApp Image 2026-07-19 at 19 38 54" src="https://github.com/user-attachments/assets/70856d7a-2e08-4705-8025-5c8fbe47a87a" />
-<img width="1555" height="921" alt="WhatsApp Image 2026-07-19 at 19 38 54 (1)" src="https://github.com/user-attachments/assets/53b6b996-d873-4dec-8c80-cff83e5c7774" />
-
-</details>
-
 ---
 
 ## 📝 Proje Geliştirme Süreci (Sprint Raporları)
