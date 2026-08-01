@@ -102,7 +102,13 @@ benim_dunyam/
 
 3. **`.env` dosyasını oluştur**
 
-   `backend/` klasörü içine bir `.env` dosyası oluştur (aşağıdaki [Ortam Değişkenleri](#-ortam-değişkenleri-env) bölümüne bak).
+   `.env` dosyası güvenlik nedeniyle repoya dahil edilmemiştir (`.gitignore`'da). `backend/` klasörü içindeki örnek dosyayı kopyalayarak oluştur:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Gerekirse değerleri kendi ortamına göre düzenle (aşağıdaki [Ortam Değişkenleri](#-ortam-değişkenleri-env) bölümüne bak). **Not:** `.env` dosyası yoksa `OLLAMA_MODEL` gibi değişkenler kod içindeki varsayılan değerlere düşer — bu yüzden bu adımı atlamamak önemlidir.
 
 4. **(Opsiyonel) Ollama'yı kur ve modeli indir**
 

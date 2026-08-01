@@ -9,7 +9,7 @@
 require('dotenv').config();
 
 const OLLAMA_URL   = process.env.OLLAMA_URL   || 'http://localhost:11434';
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'llama3.2:3b';
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen2.5:3b';
 const ZAMAN_ASIMI_MS = 30000;
 
 // Çocuk güvenliği için son savunma hattı: yanıtta bu kelimelerden biri geçerse
