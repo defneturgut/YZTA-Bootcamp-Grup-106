@@ -1,0 +1,12 @@
+# Bağımlılıklar
+node_modules/
+
+# Ortam değişkenleri (gizli/kişisel ayarlar)
+.env
+
+# Çalışma zamanında otomatik oluşturulan JSON veritabanı
+backend/benim_dunyam.json
+
+# İşletim sistemi / editör dosyaları
+.DS_Store
+*.log
