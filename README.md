@@ -17,7 +17,6 @@ YZTA Bootcamp Grup 106 kapsamında geliştirilmiştir.
 - [Çalıştırma](#-çalıştırma)
 - [Ortam Değişkenleri (.env)](#-ortam-değişkenleri-env)
 - [API Uç Noktaları](#-api-uç-noktaları)
-- [Ekran Görüntüleri](#-ekran-görüntüleri)
 - [Proje Geliştirme Süreci (Sprint Raporları)](#-proje-geliştirme-süreci-sprint-raporları)
 
 ---
