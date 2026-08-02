@@ -187,6 +187,9 @@ EBEVEYN_PIN=1234
 ## 📝 Proje Geliştirme Süreci (Sprint Raporları)
 
 # YZTA-Bootcamp-Grup-106
+
+# Sprint 1
+
 # Güncel Ürün Ekran Görüntüleri
 <img width="1468" height="807" alt="ana sayfa" src="https://github.com/user-attachments/assets/ac163009-5b09-427e-b419-11608d3be1e0" />
 <img width="1372" height="735" alt="duygu kartları" src="https://github.com/user-attachments/assets/fd20d6d7-95cd-4961-95a3-4cc4060141d6" />
