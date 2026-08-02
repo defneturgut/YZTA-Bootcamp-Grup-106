@@ -4,6 +4,9 @@
 
 **Benim Dünyam**, özel gereksinimli çocuklara (disleksi, diskalkuli vb.) yönelik olarak geliştirilmiş, eğlenceli ve erişilebilir bir eğitim ve günlük yaşam destek uygulamasıdır. Çocuklar için oyunlaştırılmış öğrenme aktiviteleri, duygu takibi ve yapay zekâ destekli bir sohbet arkadaşı (Catbot) sunarken; ebeveynlere de çocuklarının gelişimini takip edebilecekleri bir panel sağlar.
 
+**Demo Videosu** 
+https://www.youtube.com/watch?v=usF_1fj-BL8
+
 YZTA Bootcamp Grup 106 kapsamında geliştirilmiştir.
 
 ---
