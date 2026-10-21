@@ -1,155 +1,157 @@
-# 🌈 Benim Dünyam
+# 🌈 Benim Dünyam (My World)
 
-**Takım:** Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak — YZTA Bootcamp Grup 106
+**Team:** Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak — YZTA Bootcamp Group 106
 
-**Benim Dünyam**, özel gereksinimli çocuklara (disleksi, diskalkuli vb.) yönelik olarak geliştirilmiş, eğlenceli ve erişilebilir bir eğitim ve günlük yaşam destek uygulamasıdır. Çocuklar için oyunlaştırılmış öğrenme aktiviteleri, duygu takibi ve yapay zekâ destekli bir sohbet arkadaşı (Catbot) sunarken; ebeveynlere de çocuklarının gelişimini takip edebilecekleri bir panel sağlar.
+**Benim Dünyam** ("My World") is a fun and accessible education and daily-life support app built for children with special needs (dyslexia, dyscalculia, etc.). It offers children gamified learning activities, emotion tracking and an AI-powered chat companion (Catbot), and gives parents a dashboard to follow their child's progress.
 
-**Demo Videosu** 
+**Demo Video**
 https://www.youtube.com/watch?v=usF_1fj-BL8
 
-YZTA Bootcamp Grup 106 kapsamında geliştirilmiştir.
+Developed as part of YZTA Bootcamp Group 106.
+
+> **Note:** the app's user interface is in Turkish. Some file names and API routes use Turkish words; their English meanings are given below.
 
 ---
 
-## 📋 İçindekiler
+## 📋 Table of Contents
 
-- [Özellikler](#-özellikler)
-- [Teknolojiler](#-teknolojiler)
-- [Proje Yapısı](#-proje-yapısı)
-- [Kurulum](#-kurulum)
-- [Çalıştırma](#-çalıştırma)
-- [Ortam Değişkenleri (.env)](#-ortam-değişkenleri-env)
-- [API Uç Noktaları](#-api-uç-noktaları)
-- [Proje Geliştirme Süreci (Sprint Raporları)](#-proje-geliştirme-süreci-sprint-raporları)
+- [Features](#-features)
+- [Technologies](#-technologies)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Running](#️-running)
+- [Environment Variables (.env)](#-environment-variables-env)
+- [API Endpoints](#-api-endpoints)
+- [Development Process (Sprint Reports)](#-development-process-sprint-reports)
 
 ---
 
-## ✨ Özellikler
+## ✨ Features
 
-- **🐱 Catbot** — Ollama üzerinde çalışan yerel bir yapay zekâ modeliyle konuşan, çocuk-güvenli, kedi karakterli sohbet asistanı. Duygusal durumlara (üzüntü, korku, kaygı, kavga vb.) kural tabanlı, güvenli ve tutarlı yanıtlar; diğer konularda ise yapay zekâ destekli sohbet sunar.
-- **😊 Duygu Kartları** — Çocuğun o anki duygusunu seçip kaydedebildiği, ebeveynin de takip edebildiği bir modül.
-- **🍎 Sayı Bahçesi** — Diskalkuli (matematik güçlüğü) yaşayan çocuklar için meyvelerle toplama, çıkarma, çarpma ve bölme alıştırmaları.
-- **✏️ Yazı Atölyesi** — Disleksi yaşayan çocuklar için dinle-yaz alıştırmaları ve harf ayırt etme oyunları.
-- **📅 Günüm** — Günlük yapılacaklar listesi, planlayıcı ve yapay zekâ destekli gün planı sohbeti.
-- **🌟 Oyunlaştırma** — Doğru cevaplar ve tamamlanan oturumlarla kazanılan XP, seviye ilerlemesi ve rozetler (🥉🥈🥇).
-- **♿ Erişilebilirlik** — Yazı boyutu ayarı, yüksek kontrast modu, disleksi dostu font seçeneği ve sesli okuma (metinden sese).
-- **🌿 Sakinleşme Molası** — Anksiyete anlarında kullanılabilecek nefes egzersizi ekranı.
-- **⚙️ Ebeveyn Paneli** — PIN korumalı, çocuğun oyun istatistiklerini ve gelişimini görüntüleyebileceği panel.
+- **🐱 Catbot** — a child-safe, cat-character chat assistant powered by a local AI model running on Ollama. It gives rule-based, safe and consistent responses to emotional situations (sadness, fear, anxiety, fights, etc.) and AI-powered conversation on other topics.
+- **😊 Emotion Cards** — a module where the child can pick and record how they feel, and the parent can follow along.
+- **🍎 Number Garden** — addition, subtraction, multiplication and division exercises with fruit for children with dyscalculia (difficulty with math).
+- **✏️ Writing Workshop** — listen-and-write exercises and letter-discrimination games for children with dyslexia.
+- **📅 My Day** — a daily to-do list, planner and AI-powered day-planning chat.
+- **🌟 Gamification** — XP earned through correct answers and completed sessions, level progression and badges (🥉🥈🥇).
+- **♿ Accessibility** — font size control, high-contrast mode, a dyslexia-friendly font option and read-aloud (text-to-speech).
+- **🌿 Calm-Down Break** — a breathing exercise screen for moments of anxiety.
+- **⚙️ Parent Dashboard** — a PIN-protected panel to view the child's game statistics and progress.
 
-## 🛠 Teknolojiler
+## 🛠 Technologies
 
 **Backend**
 - Node.js + Express
-- Dosya tabanlı JSON veritabanı (harici veritabanı gerektirmez)
-- [Ollama](https://ollama.com) ile yerel LLM entegrasyonu (Catbot ve gün planı asistanı için)
+- File-based JSON database (no external database required)
+- Local LLM integration with [Ollama](https://ollama.com) (for Catbot and the day-planning assistant)
 
 **Frontend**
-- Saf HTML, CSS ve JavaScript (framework yok)
-- Web Speech API (sesli okuma ve sesli komut)
+- Plain HTML, CSS and JavaScript (no framework)
+- Web Speech API (read-aloud and voice commands)
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 benim_dunyam/
 ├── backend/
-│   ├── server.js          # Express sunucusu, ana giriş noktası
-│   ├── db.js               # JSON dosya tabanlı veritabanı katmanı
-│   ├── ollama.js            # Ollama (yerel LLM) ile iletişim katmanı
-│   ├── benim_dunyam.json    # Veritabanı dosyası (otomatik oluşturulur)
-│   ├── .env                 # Ortam değişkenleri (kendin oluşturman gerekir)
+│   ├── server.js            # Express server, main entry point
+│   ├── db.js                # JSON file-based database layer
+│   ├── ollama.js            # Communication layer with Ollama (local LLM)
+│   ├── benim_dunyam.json    # Database file (created automatically)
+│   ├── .env                 # Environment variables (you need to create it)
 │   └── routes/
-│       ├── profil.js        # Çocuk profili CRUD işlemleri
-│       ├── duygu.js         # Duygu kartı kayıtları
-│       ├── gorevler.js      # Günlük yapılacaklar listesi
-│       ├── skorlar.js       # Oyun skorları ve istatistikler
-│       ├── onemliGunler.js  # Önemli günler / doğum günü vb.
-│       ├── planlayici.js    # Gün planlayıcı
-│       ├── ai.js            # Catbot ve AI destekli gün planı uç noktaları
-│       └── ebeveyn.js       # Ebeveyn paneli PIN doğrulama
+│       ├── profil.js        # Child profile CRUD operations
+│       ├── duygu.js         # Emotion card records
+│       ├── gorevler.js      # Daily to-do list
+│       ├── skorlar.js       # Game scores and statistics
+│       ├── onemliGunler.js  # Important days / birthdays etc.
+│       ├── planlayici.js    # Day planner
+│       ├── ai.js            # Catbot and AI-powered day-plan endpoints
+│       └── ebeveyn.js       # Parent dashboard PIN verification
 └── frontend/
-    ├── ana-sayfa.html       # Ana sayfa / dashboard
-    ├── profil.html          # Profil oluşturma ve düzenleme
-    ├── index.html           # Duygu kartları
-    ├── diskalkuli.html/js   # Sayı Bahçesi (matematik oyunu)
-    ├── disleksi.html/js     # Yazı Atölyesi (dinle-yaz)
-    ├── takvim.html/js       # Günüm (planlayıcı)
-    ├── ebeveyn.html/js      # Ebeveyn paneli
-    ├── ortak.js             # Ortak yardımcı fonksiyonlar (Catbot, erişilebilirlik, profil vb.)
-    └── style.css            # Genel stil dosyası
+    ├── ana-sayfa.html       # Home page / dashboard
+    ├── profil.html          # Profile creation and editing
+    ├── index.html           # Emotion cards
+    ├── diskalkuli.html/js   # Number Garden (math game)
+    ├── disleksi.html/js     # Writing Workshop (listen-and-write)
+    ├── takvim.html/js       # My Day (planner)
+    ├── ebeveyn.html/js      # Parent dashboard
+    ├── ortak.js             # Shared helper functions (Catbot, accessibility, profile, etc.)
+    └── style.css            # Global stylesheet
 ```
 
-## 🚀 Kurulum
+## 🚀 Installation
 
-### Gereksinimler
+### Requirements
 
-- [Node.js](https://nodejs.org) (v18 veya üzeri önerilir)
-- npm (Node.js ile birlikte gelir)
-- [Ollama](https://ollama.com) — Catbot ve yapay zekâ destekli gün planı özelliklerinin çalışması için (opsiyonel, kurulmazsa uygulamanın geri kalanı normal çalışmaya devam eder)
+- [Node.js](https://nodejs.org) (v18 or later recommended)
+- npm (comes with Node.js)
+- [Ollama](https://ollama.com) — required for Catbot and the AI-powered day-planning features (optional; without it the rest of the app keeps working normally)
 
-### Adımlar
+### Steps
 
-1. **Projeyi klonla / indir**
+1. **Clone / download the project**
 
    ```bash
-   git clone <repo-url>
-   cd benim_dunyam
+   git clone https://github.com/defneturgut/YZTA-Bootcamp-Grup-106.git
+   cd YZTA-Bootcamp-Grup-106
    ```
 
-2. **Backend bağımlılıklarını kur**
+2. **Install backend dependencies**
 
    ```bash
    cd backend
    npm install
    ```
 
-3. **`.env` dosyasını oluştur**
+3. **Create the `.env` file**
 
-   `.env` dosyası güvenlik nedeniyle repoya dahil edilmemiştir (`.gitignore`'da). `backend/` klasörü içindeki örnek dosyayı kopyalayarak oluştur:
+   The `.env` file is not included in the repo for security reasons (it is in `.gitignore`). Create it by copying the example file inside the `backend/` folder:
 
    ```bash
    cp .env.example .env
    ```
 
-   Gerekirse değerleri kendi ortamına göre düzenle (aşağıdaki [Ortam Değişkenleri](#-ortam-değişkenleri-env) bölümüne bak). **Not:** `.env` dosyası yoksa `OLLAMA_MODEL` gibi değişkenler kod içindeki varsayılan değerlere düşer — bu yüzden bu adımı atlamamak önemlidir.
+   Adjust the values for your environment if needed (see [Environment Variables](#-environment-variables-env) below). **Note:** if there is no `.env` file, variables such as `OLLAMA_MODEL` fall back to the defaults in the code — so don't skip this step.
 
-4. **(Opsiyonel) Ollama'yı kur ve modeli indir**
+4. **(Optional) Install Ollama and download the model**
 
    ```bash
-   # Ollama'yı https://ollama.com adresinden indir, ardından:
+   # Download Ollama from https://ollama.com, then:
    ollama pull qwen2.5:3b
    ollama serve
    ```
 
-## ▶️ Çalıştırma
+## ▶️ Running
 
-Backend klasöründeyken:
+From the backend folder:
 
 ```bash
-# Geliştirme modu (dosya değişikliklerinde otomatik yeniden başlar)
+# Development mode (restarts automatically on file changes)
 npm run dev
 
-# veya production modu
+# or production mode
 npm start
 ```
 
-Sunucu ayağa kalktığında terminalde şunu göreceksin:
+When the server is up you will see this in the terminal:
 
 ```
 🚀 Benim Dünyam API → http://localhost:3001
    Sağlık kontrolü  → http://localhost:3001/api/saglik
 ```
 
-Backend, `frontend/` klasöründeki dosyaları da otomatik olarak sunar. Tarayıcında şu adresi aç:
+The backend also serves the files in the `frontend/` folder automatically. Open this address in your browser:
 
 ```
 http://localhost:3001
 ```
 
-> 💡 Ayrıca `frontend/index.html` dosyasını doğrudan tarayıcıda `file://` protokolüyle de açabilirsin — backend CORS ayarları buna izin verecek şekilde yapılandırılmıştır.
+> 💡 You can also open `frontend/index.html` directly in the browser via the `file://` protocol — the backend CORS settings are configured to allow this.
 
-## 🔧 Ortam Değişkenleri (.env)
+## 🔧 Environment Variables (.env)
 
-`backend/.env` dosyası aşağıdaki değişkenleri içermelidir:
+The `backend/.env` file should contain the following variables:
 
 ```env
 PORT=3001
@@ -159,43 +161,43 @@ OLLAMA_MODEL=qwen2.5:3b
 EBEVEYN_PIN=1234
 ```
 
-| Değişken | Açıklama |
+| Variable | Description |
 |---|---|
-| `PORT` | Backend sunucusunun çalışacağı port |
-| `DB_PATH` | JSON veritabanı dosyasının yolu |
-| `OLLAMA_URL` | Ollama sunucusunun adresi (varsayılan: yerel) |
-| `OLLAMA_MODEL` | Catbot ve gün planı asistanının kullanacağı model adı |
-| `EBEVEYN_PIN` | Ebeveyn paneline erişim için 4 haneli PIN kodu |
+| `PORT` | Port the backend server runs on |
+| `DB_PATH` | Path to the JSON database file |
+| `OLLAMA_URL` | Address of the Ollama server (default: local) |
+| `OLLAMA_MODEL` | Model name used by Catbot and the day-planning assistant |
+| `EBEVEYN_PIN` | 4-digit PIN code for accessing the parent dashboard |
 
-## 🔌 API Uç Noktaları
+## 🔌 API Endpoints
 
-| Yöntem | Uç Nokta | Açıklama |
+| Method | Endpoint | Description |
 |---|---|---|
-| GET | `/api/saglik` | Sunucu sağlık kontrolü |
-| GET/POST/PUT | `/api/profil` | Çocuk profili işlemleri |
-| GET/POST | `/api/duygu` | Duygu kartı kayıtları |
-| GET/POST | `/api/gorevler` | Günlük yapılacaklar listesi |
-| GET/POST | `/api/skorlar` | Oyun skorları ve istatistikler |
-| GET/POST | `/api/onemli-gunler` | Önemli günler |
-| GET/POST | `/api/planlayici` | Gün planlayıcı |
-| POST | `/api/ai/sohbet` | Catbot ile sohbet |
-| POST | `/api/ai/gunum-sohbet` | AI destekli gün planı oluşturma |
-| POST | `/api/ebeveyn/pin-dogrula` | Ebeveyn paneli PIN doğrulama |
+| GET | `/api/saglik` | Server health check |
+| GET/POST/PUT | `/api/profil` | Child profile operations |
+| GET/POST | `/api/duygu` | Emotion card records |
+| GET/POST | `/api/gorevler` | Daily to-do list |
+| GET/POST | `/api/skorlar` | Game scores and statistics |
+| GET/POST | `/api/onemli-gunler` | Important days |
+| GET/POST | `/api/planlayici` | Day planner |
+| POST | `/api/ai/sohbet` | Chat with Catbot |
+| POST | `/api/ai/gunum-sohbet` | AI-powered day-plan generation |
+| POST | `/api/ebeveyn/pin-dogrula` | Parent dashboard PIN verification |
 
 ---
 
-## 📝 Proje Geliştirme Süreci (Sprint Raporları)
+## 📝 Development Process (Sprint Reports)
 
 # YZTA-Bootcamp-Grup-106
 
 # Sprint 1
 
-# Güncel Ürün Ekran Görüntüleri
-<img width="1468" height="807" alt="ana sayfa" src="https://github.com/user-attachments/assets/ac163009-5b09-427e-b419-11608d3be1e0" />
-<img width="1372" height="735" alt="duygu kartları" src="https://github.com/user-attachments/assets/fd20d6d7-95cd-4961-95a3-4cc4060141d6" />
-<img width="1318" height="614" alt="günüm" src="https://github.com/user-attachments/assets/d181145d-0839-468c-b7e3-125475eabbd0" />
-<img width="1195" height="740" alt="sayı bahçesi" src="https://github.com/user-attachments/assets/fdc9fdca-8a5c-4c50-aa49-ffaf88c9c4b8" />
-<img width="1204" height="783" alt="yazı atölyesii" src="https://github.com/user-attachments/assets/facc099f-a7c0-473e-8c4a-328c402ed3e3" />
+# Current Product Screenshots
+<img width="1468" height="807" alt="home page" src="https://github.com/user-attachments/assets/ac163009-5b09-427e-b419-11608d3be1e0" />
+<img width="1372" height="735" alt="emotion cards" src="https://github.com/user-attachments/assets/fd20d6d7-95cd-4961-95a3-4cc4060141d6" />
+<img width="1318" height="614" alt="my day" src="https://github.com/user-attachments/assets/d181145d-0839-468c-b7e3-125475eabbd0" />
+<img width="1195" height="740" alt="number garden" src="https://github.com/user-attachments/assets/fdc9fdca-8a5c-4c50-aa49-ffaf88c9c4b8" />
+<img width="1204" height="783" alt="writing workshop" src="https://github.com/user-attachments/assets/facc099f-a7c0-473e-8c4a-328c402ed3e3" />
 
 # Sprint Board
 
@@ -211,80 +213,80 @@ EBEVEYN_PIN=1234
 # Sprint 2 – Daily Scrum
 # Daily Scrum 1
 
-Tarih: 13.07.2026
+Date: 13.07.2026
 
-Katılımcılar: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
+Participants: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
 
-Neler yaptık?
-Sprint 1 başarıyla tamamlandı.
-Nihai frontend tasarımı belirlendi.
-Proje klasör yapısı oluşturuldu.
-Geliştirme ortamı hazırlandı.
-Bugün neler yapacağız?
-Kullanıcı giriş ekranı geliştirilecek.
-Çocuk profili veri modeli oluşturulacak.
-Dashboard bileşenleri geliştirilmeye başlanacak.
-Karşılaşılan engeller
-Rol bazlı yetkilendirme yapısının nasıl tasarlanacağı üzerinde araştırma devam ediyor.
+What did we do?
+Sprint 1 was completed successfully.
+The final frontend design was decided.
+The project folder structure was created.
+The development environment was set up.
+What will we do today?
+Build the user login screen.
+Create the child profile data model.
+Start developing the dashboard components.
+Blockers
+Research is ongoing on how to design role-based authorization.
 
 # Daily Scrum 2
 
-Tarih: 18.07.2026
+Date: 18.07.2026
 
-Katılımcılar: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
+Participants: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
 
-Neler yaptık?
-Login ve kayıt ekranlarının ilk taslağı tamamlandı.
-Dashboard bileşenlerinin büyük bölümü geliştirildi.
-Çocuk profili ekranının temel yapısı oluşturuldu.
-Bugün neler yapacağız?
-Öğretmen–veli eşleştirme altyapısı geliştirilecek.
-Responsive düzenlemeler yapılacak.
-Tamamlanan modüller test edilmeye başlanacak.
-Karşılaşılan engeller
-Frontend ile backend veri yapılarının uyumlu hale getirilmesi için küçük revizyonlara ihtiyaç duyuldu.
+What did we do?
+The first draft of the login and sign-up screens was completed.
+Most of the dashboard components were developed.
+The basic structure of the child profile screen was created.
+What will we do today?
+Build the teacher–parent matching infrastructure.
+Make responsive layout adjustments.
+Start testing the completed modules.
+Blockers
+Small revisions were needed to align the frontend and backend data structures.
 
 # Sprint 2 – Sprint Review
-# Sprint Hedefi
-Kullanıcı yönetimi altyapısını oluşturmak ve seçilen arayüz tasarımını çalışan bir prototipe dönüştürmek.
+# Sprint Goal
+Build the user management infrastructure and turn the chosen UI design into a working prototype.
 
-# Tamamlanan Çalışmalar
-Kullanıcı kayıt ve giriş ekranlarının ilk sürümü geliştirildi.
-Dashboard sayfasının temel yapısı oluşturuldu.
-Çocuk profili ekranı tasarlandı ve veri giriş alanları eklendi.
-Kullanıcı rollerine uygun temel veritabanı yapısı oluşturuldu.
-Frontend template projeye entegre edildi.
-Responsive tasarım çalışmalarına başlandı.
-# Gösterilen Çıktılar
-Login ekranı
-Dashboard ekranı
-Çocuk profili oluşturma ekranı
-Menü ve navigasyon yapısı
-Sprint Hedefi Gerçekleşme Durumu
+# Completed Work
+The first version of the user sign-up and login screens was developed.
+The basic structure of the dashboard page was created.
+The child profile screen was designed and data entry fields were added.
+A basic database structure for user roles was created.
+The frontend template was integrated into the project.
+Responsive design work was started.
+# Demonstrated Outputs
+Login screen
+Dashboard screen
+Child profile creation screen
+Menu and navigation structure
+Sprint Goal Achievement
 
-Sprint hedeflerinin büyük bölümü başarıyla tamamlanmıştır. Rol bazlı yetkilendirme ve bazı responsive düzenlemeler bir sonraki sprintte tamamlanacaktır.
+Most of the sprint goals were completed successfully. Role-based authorization and some responsive adjustments will be completed in the next sprint.
 
 # Sprint 2 – Sprint Retrospective
-# İyi Gidenler
-Takım üyeleri arasındaki iletişim önceki sprinte göre daha düzenli ilerledi.
-Frontend geliştirme süreci planlanan takvime uygun devam etti.
-Seçilen tasarımın uygulanması beklenenden daha hızlı gerçekleşti.
-Görev dağılımı dengeli şekilde yapıldı.
-# Geliştirilebilecek Noktalar
-Backend ve frontend geliştirmeleri daha senkron ilerlemeli.
-Kod inceleme (Code Review) süreçleri daha sık yapılmalı.
-Test senaryoları sprint boyunca hazırlanmalı, sprint sonuna bırakılmamalı.
-# Sonraki Sprint İçin Alınan Kararlar
-BEP ve eğitim modüllerinin geliştirilmesine başlanacak.
-Öğretmen ve veli panelleri birbirinden ayrılacak.
-Günlük gelişim kayıtları ve eğitim notları sisteme eklenecek.
-API entegrasyonları tamamlanacak.
-Birim testleri ve kullanıcı testleri sprint sürecine dahil edilecek.
+# What Went Well
+Communication between team members was more organized than in the previous sprint.
+Frontend development stayed on the planned schedule.
+The chosen design was implemented faster than expected.
+Tasks were distributed in a balanced way.
+# What Could Be Improved
+Backend and frontend development should move more in sync.
+Code reviews should happen more often.
+Test scenarios should be prepared throughout the sprint, not left until the end.
+# Decisions for the Next Sprint
+Start developing the IEP (individualized education plan) and education modules.
+Separate the teacher and parent dashboards.
+Add daily progress records and education notes to the system.
+Complete the API integrations.
+Include unit tests and user tests in the sprint process.
 
 # Scrum Board
 <img width="1440" height="677" alt="Screenshot 2026-07-19 at 11 54 42" src="https://github.com/user-attachments/assets/2eaa3151-4332-4ccb-b4f7-b6fb328b2c85" />
 
-# Güncel Güncel Ürün Ekran Görüntüleri
+# Updated Product Screenshots
 <img width="1499" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53" src="https://github.com/user-attachments/assets/a3fed64b-d426-4420-89af-db0b12c24886" />
 <img width="1371" height="963" alt="WhatsApp Image 2026-07-19 at 19 38 53 (1)" src="https://github.com/user-attachments/assets/f03095d4-251e-4723-a8d7-c3367da660ff" />
 <img width="1569" height="949" alt="WhatsApp Image 2026-07-19 at 19 38 53 (2)" src="https://github.com/user-attachments/assets/4c2e067d-917d-4b74-9312-75a0d79c6971" />
@@ -294,49 +296,49 @@ Birim testleri ve kullanıcı testleri sprint sürecine dahil edilecek.
 
 # Sprint 3
 
-Platformun Minimum Viable Product (MVP) sürümünü tamamlamak, Ollama üzerinde çalışan Qwen modeli ile yapay zekâ destekli günlük rutin öneri sistemini geliştirmek ve uygulamaya entegre ederek projeyi teslim edilebilir hale getirmek.
+Complete the platform's Minimum Viable Product (MVP), build an AI-powered daily routine suggestion system with the Qwen model running on Ollama, integrate it into the app and make the project ready for delivery.
 
 # Sprint Backlog
 
 # Sprint 3 - User Story 1
-Yapay Zekâ Destekli Günlük Rutin Oluşturma
+AI-Powered Daily Routine Generation
 
-Açıklama:
-Ebeveyn tarafından girilen çocuğun yaşı, özel gereksinim türü, ilgi alanları ve gelişim hedeflerine göre Ollama üzerinde çalışan Qwen modeli kullanılarak kişiselleştirilmiş günlük rutin önerileri oluşturulacaktır.
+Description:
+Personalized daily routine suggestions will be generated with the Qwen model running on Ollama, based on the child's age, type of special need, interests and development goals entered by the parent.
 
-Alt Görevler:
-Task 1.1 Ollama kurulumu ve Qwen modelinin hazırlanması
-Task 1.2 Prompt tasarımının hazırlanması
-Task 1.3 AI servisinin backend'e entegre edilmesi
-Task 1.4 Günlük rutin önerilerinin kullanıcı arayüzünde gösterilmesi
+Subtasks:
+Task 1.1 Install Ollama and prepare the Qwen model
+Task 1.2 Prepare the prompt design
+Task 1.3 Integrate the AI service into the backend
+Task 1.4 Show the daily routine suggestions in the user interface
 
 # Sprint 3 - User Story 2
-Eğitim ve Günlük Yaşam Modüllerinin Tamamlanması
+Completing the Education and Daily Life Modules
 
-Açıklama:
-Sprint 2'de geliştirilen kullanıcı altyapısı üzerine eğitim ve günlük yaşam modülleri tamamlanacaktır.
+Description:
+The education and daily life modules will be completed on top of the user infrastructure built in Sprint 2.
 
-Alt Görevler:
-Task 2.1 Günlük rutin kayıt ekranı
-Task 2.2 Eğitim aktivitesi giriş ekranı
-Task 2.3 AI önerisinin rutin ekranına eklenmesi
-Task 2.4 Dashboard özet kartlarının tamamlanması
+Subtasks:
+Task 2.1 Daily routine entry screen
+Task 2.2 Education activity entry screen
+Task 2.3 Add the AI suggestion to the routine screen
+Task 2.4 Complete the dashboard summary cards
 
 # Sprint 3 - User Story 3
-Sistem Testi ve Proje Teslimi
+System Testing and Project Delivery
 
-Açıklama:
-Tüm modüllerin test edilmesi, hata düzeltmeleri ve proje sunumunun hazırlanması.
+Description:
+Test all modules, fix bugs and prepare the project presentation.
 
-Alt Görevler:
-Task 3.1 Entegrasyon testleri
-Task 3.2 Hata düzeltmeleri
-Task 3.3 Kullanıcı kabul testi
-Task 3.4 Final sunumu ve demo hazırlanması
+Subtasks:
+Task 3.1 Integration tests
+Task 3.2 Bug fixes
+Task 3.3 User acceptance testing
+Task 3.4 Prepare the final presentation and demo
 
 # Sprint Board
 
-Ekran Görüntüsü:
+Screenshot:
 <img width="1440" height="670" alt="Screenshot 2026-07-30 at 16 26 44" src="https://github.com/user-attachments/assets/c6ca381b-7538-4ac6-b5f6-d086ac5c3e74" />
 
 Sprint Backlog
@@ -347,106 +349,106 @@ Sprint 3 - User Story 3
 
 To Do
 
-Sprint 3 - Task 1.4 AI rutinlerinin kullanıcı ekranında gösterilmesi
-Sprint 3 - Task 2.4 Dashboard özet kartları
-Sprint 3 - Task 3.3 Kullanıcı kabul testi
-Sprint 3 - Task 3.4 Final sunumu hazırlanması
+Sprint 3 - Task 1.4 Show AI routines on the user screen
+Sprint 3 - Task 2.4 Dashboard summary cards
+Sprint 3 - Task 3.3 User acceptance testing
+Sprint 3 - Task 3.4 Prepare the final presentation
 
 In Progress
 
-Sprint 3 - Task 1.1 Ollama kurulumu ve Qwen modeli
+Sprint 3 - Task 1.1 Ollama setup and Qwen model
 Sprint 3 - Task 1.2 Prompt Engineering
-Sprint 3 - Task 1.3 AI Backend Entegrasyonu
-Sprint 3 - Task 2.1 Günlük rutin ekranı
-Sprint 3 - Task 2.2 Eğitim aktivitesi ekranı
-Sprint 3 - Task 2.3 AI önerilerinin entegrasyonu
+Sprint 3 - Task 1.3 AI Backend Integration
+Sprint 3 - Task 2.1 Daily routine screen
+Sprint 3 - Task 2.2 Education activity screen
+Sprint 3 - Task 2.3 Integration of AI suggestions
 
 Review
 
-AI rutin önerilerinin doğruluğunun değerlendirilmesi
-Kullanıcı deneyimi testleri
-Sistem performans testi
+Evaluating the accuracy of AI routine suggestions
+User experience testing
+System performance testing
 
 Done
-Sprint 2 tamamlandı
-Kullanıcı yönetimi modülü tamamlandı
-Çocuk profili modülü tamamlandı
-Dashboard geliştirildi
-Frontend template tamamen entegre edildi
+Sprint 2 completed
+User management module completed
+Child profile module completed
+Dashboard developed
+Frontend template fully integrated
 
 # Daily Scrum
 
 # Daily Scrum 1
 
-Tarih: 20.07.2026
+Date: 20.07.2026
 
-Katılımcılar: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
+Participants: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
 
-Dün neler yaptık?
-Sprint 2 başarıyla tamamlandı.
-AI entegrasyonu için Ollama ortamı hazırlandı.
-Qwen modeli indirildi ve test edildi.
+What did we do yesterday?
+Sprint 2 was completed successfully.
+The Ollama environment was prepared for AI integration.
+The Qwen model was downloaded and tested.
 
-Bugün neler yapacağız?
-Prompt yapısı oluşturulacak.
-AI servisleri backend ile entegre edilecek.
-Günlük rutin ekranı geliştirilecek.
+What will we do today?
+Create the prompt structure.
+Integrate the AI services with the backend.
+Build the daily routine screen.
 
-Engeller
-Prompt çıktılarının tutarlılığı için farklı istemler deneniyor.
+Blockers
+Different prompts are being tried to make the outputs consistent.
 
 # Daily Scrum 2
 
-Tarih: 27.07.2026
+Date: 27.07.2026
 
-Katılımcılar: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
+Participants: Defne Turgut, Kadir Kızılyaprak, Ebrar Yumşak
 
-Dün neler yaptık?
-Yapay zekâ başarılı şekilde günlük rutin oluşturdu.
-Dashboard AI önerilerini göstermeye başladı.
-Eğitim ekranları tamamlandı.
+What did we do yesterday?
+The AI successfully generated a daily routine.
+The dashboard started showing AI suggestions.
+The education screens were completed.
 
-Bugün neler yapacağız?
-Son testler yapılacak.
-Hatalar giderilecek.
-Demo hazırlanacak.
+What will we do today?
+Run the final tests.
+Fix bugs.
+Prepare the demo.
 
-Engeller
-Önemli bir engel bulunmamaktadır.
+Blockers
+No significant blockers.
 
 # Sprint Review
 
-Sprint Hedefi:
-Yapay zekâ destekli günlük rutin oluşturma özelliğini tamamlayarak tüm modüllerin çalışır durumda olduğu MVP sürümünü oluşturmak.
+Sprint Goal:
+Complete the AI-powered daily routine generation feature and build an MVP in which all modules are working.
 
-Tamamlanan Çalışmalar:
-Ollama kurulumu tamamlandı.
-Qwen modeli sisteme entegre edildi.
-Yapay zekâ destekli günlük rutin oluşturma başarıyla geliştirildi.
-Günlük yaşam aktiviteleri modülü tamamlandı.
-Eğitim aktiviteleri ekranları geliştirildi.
-Dashboard üzerinde AI önerileri görüntülenmeye başlandı.
-Sistem testleri gerçekleştirildi.
-Projenin MVP sürümü başarıyla tamamlandı.
+Completed Work:
+Ollama setup was completed.
+The Qwen model was integrated into the system.
+AI-powered daily routine generation was developed successfully.
+The daily life activities module was completed.
+The education activity screens were developed.
+AI suggestions started being shown on the dashboard.
+System tests were carried out.
+The MVP version of the project was completed successfully.
 
 Demo:
-Kullanıcı girişi
-Çocuk profili oluşturma
-Eğitim kayıt ekranı
-Günlük rutin ekranı
-Yapay zekâ tarafından oluşturulan kişiselleştirilmiş rutin önerisi
-Dashboard üzerinden gelişim takibi
+User login
+Child profile creation
+Education record screen
+Daily routine screen
+Personalized routine suggestion generated by AI
+Progress tracking from the dashboard
 
 # Sprint Retrospective
 
-İyi Gidenler:
-Ollama ve Qwen modeli başarılı şekilde uygulamaya entegre edildi.
-Takım içi görev paylaşımı verimli ilerledi.
-Yapay zekâ çıktıları kullanıcı ihtiyaçlarını büyük ölçüde karşıladı.
-Planlanan MVP kapsamı zamanında tamamlandı.
+What Went Well:
+Ollama and the Qwen model were integrated into the app successfully.
+Task sharing within the team was efficient.
+The AI outputs largely met user needs.
+The planned MVP scope was completed on time.
 
-Geliştirilebilecek Noktalar:
-Yapay zekâ önerileri daha fazla kullanıcı verisiyle kişiselleştirilebilir.
-İlerleyen sürümlerde RAG desteği eklenebilir.
-Mobil cihazlar için performans optimizasyonları yapılabilir.
-AI çıktılarının doğruluğunu artırmak için daha kapsamlı prompt ve değerlendirme süreçleri geliştirilebilir.
+What Could Be Improved:
+AI suggestions could be personalized further with more user data.
+RAG support could be added in future versions.
+Performance optimizations could be made for mobile devices.
+More thorough prompt and evaluation processes could be developed to improve the accuracy of AI outputs.
